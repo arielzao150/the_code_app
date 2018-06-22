@@ -5,12 +5,12 @@ class CaesarShift extends Criptografia {
   final String explicacao = "Caesar EXPLICAÇÃO";
   final String nome = "Caesar's Shift";
   @override
-  String encrypt(String plaintext) {
+  String encrypt(String plaintext, {String key}) {
     return "";
   }
 
   @override
-  String decrypt(String cyphertext) {
+  String decrypt(String cyphertext, {String key}) {
     return "";
   }
 

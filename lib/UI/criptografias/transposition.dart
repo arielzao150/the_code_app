@@ -1,51 +1,47 @@
 import 'package:flutter/material.dart';
+import '../basic_crypto.dart';
 
-abstract class Criptografia extends StatefulWidget{
-  final String explicacao = "";
-  final String nome = "";
-  String encrypt(String plaintext, {String key});
-  String decrypt(String cyphertext, {String key});
-}
-
-class Basic extends StatefulWidget {
+class Transposition extends Criptografia {
+  final String explicacao = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras commodo massa ut ex porta euismod. Etiam venenatis cursus lorem ut eleifend. Fusce nec tempus erat. Integer eget dolor mauris. Donec sed varius ligula, eu scelerisque enim. Etiam ut lacus sed felis cursus dictum. Suspendisse ut tempor elit. Integer tincidunt turpis eget neque lacinia bibendum. Praesent eget nunc at neque lacinia lobortis. Donec eleifend mattis quam, quis tempor nisi finibus nec. Fusce maximus efficitur ligula sit amet dignissim. Ut ultrices accumsan vehicula."
+  
+  Vestibulum metus augue, cursus ac ligula sed, gravida bibendum eros. Vestibulum at pharetra nisl, ut bibendum leo. Nulla vel consectetur dolor. Proin mattis velit eu viverra venenatis. Quisque porttitor, metus at cursus mollis, sem nisl cursus nunc, non hendrerit ligula ipsum eget elit. Donec vel consequat diam. In facilisis auctor lacus, sed dictum nulla dapibus vel. Vestibulum condimentum sapien non ante egestas aliquet. Duis arcu dolor, hendrerit sit amet lacus quis, dignissim tincidunt odio. Suspendisse facilisis lectus vitae justo euismod, in vulputate dui aliquam. Ut cursus euismod metus, non faucibus nibh convallis quis. Praesent gravida nulla non vehicula posuere. In facilisis orci ac arcu finibus, in rutrum dui dictum. In non elit augue. Nam id ullamcorper justo.""";
+  final String nome = "Transposition";
   @override
-  _BasicState createState() => _BasicState("","");
-}
+  String encrypt(String plaintext, {String key}) {
+    return "";
+  }
 
-class _BasicState extends State<Basic> {
+  @override
+  String decrypt(String cyphertext, {String key}) {
+    return "";
+  }
+
+  @override
+  State<StatefulWidget> createState() => _TranspositionState(explicacao, nome);
+}
+class _TranspositionState extends State<Transposition>{
   final TextEditingController _input = new TextEditingController();
   final TextEditingController _key = new TextEditingController();
   final TextEditingController _output = new TextEditingController();
   final String explicacao;
   final String nome;
 
-  _BasicState(this.explicacao, this.nome);
+  _TranspositionState(this.explicacao, this.nome);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Basic"),
+        title: new Text(nome),
       ),
-      body: new Container(
-        child: new Column(
+      body: new ListView(
           children: <Widget>[
-
             // Explicação
             new Container(
               child: new RichText(
                 text: new TextSpan(
-                  text:
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                  text: explicacao,
                   style: new TextStyle(color: Colors.black),
-                  children: <TextSpan>[
-                    new TextSpan(
-                        text: ' Aenean iaculis condimentum eros.',
-                        style: new TextStyle(fontWeight: FontWeight.bold)),
-                    new TextSpan(
-                        text:
-                            ' Nam faucibus congue tortor, vel venenatis diam maximus et. Vestibulum ante ipsum primis.'),
-                  ],
                 ),
                 textDirection: TextDirection.ltr,
                 overflow: TextOverflow.clip,
@@ -90,7 +86,7 @@ class _BasicState extends State<Basic> {
 
             // Output
             new Container(
-              margin: new EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
+              margin: new EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 32.0),
               child: new TextField(
                 controller: _output,
                 decoration: new InputDecoration(
@@ -100,7 +96,7 @@ class _BasicState extends State<Basic> {
             ),
           ],
         ),
-      ),
+      //),
     );
   }
 }

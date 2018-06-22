@@ -8,12 +8,12 @@ class Base64 extends Criptografia{
   State<StatefulWidget> createState() => _Base64State(explicacao);
 
   @override
-  String decrypt(String cyphertext) {
+  String decrypt(String cyphertext, {String key}) {
     return "";
   }
 
   @override
-  String encrypt(String plaintext) {
+  String encrypt(String plaintext, {String key}) {
     return "Ainda não implementado";
   }
 }
