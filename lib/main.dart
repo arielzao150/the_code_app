@@ -4,7 +4,7 @@ import './UI/home.dart';
 void main() async {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
-    title: "Mob2b",
+    title: "The Code App",
     home: new Home(),
   ));
 }
