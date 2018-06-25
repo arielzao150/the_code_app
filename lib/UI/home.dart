@@ -22,9 +22,10 @@ class _HomeState extends State<Home> {
     types.add(new CaesarShift());
 
     types.sort((Criptografia a, Criptografia b) {
-      if(a.nivel == b.nivel)
+      if (a.nivel == b.nivel)
         return a.nome.compareTo(b.nome);
-      else return a.nivel.index > b.nivel.index ? 1 : -1;
+      else
+        return a.nivel.index > b.nivel.index ? 1 : -1;
     });
     return new Scaffold(
       appBar: new AppBar(
@@ -39,12 +40,16 @@ class _HomeState extends State<Home> {
               return new Column(
                 children: <Widget>[
                   new ListTile(
-                    title: new Text(tipo.nome),
+                    title: new Text(
+                      tipo.nome,
+                      style: new TextStyle(fontSize: 20.0),
+                    ),
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) => tipo));
                     },
-                    trailing: new Text(tipo.nivel.toString()),
+                    trailing: new Text(tipo.nivel.toString().substring(6)),
+                    leading: new Icon(Icons.vpn_key),
                   ),
                   new Divider(
                     color: Colors.grey,
