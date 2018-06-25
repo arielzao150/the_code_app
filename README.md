@@ -1,6 +1,6 @@
-# the_code_app
+# The Code App
 
-A new Flutter application.
+Aplicativo mobile em Flutter para o ensino de criptografia.
 
 ## Getting Started
 
