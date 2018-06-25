@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../basic_crypto.dart';
 
 class Transposition extends Criptografia {
@@ -16,7 +17,7 @@ Vestibulum metus augue, cursus ac ligula sed, gravida bibendum eros. Vestibulum 
 
   @override
   String decrypt(String cyphertext, {String key}) {
-    return "DECRYPT Plain = " + cyphertext+ " Key = " + key;
+    return "DECRYPT Plain = " + cyphertext + " Key = " + key;
   }
 
   @override
@@ -124,16 +125,41 @@ class _TranspositionState extends State<Transposition> {
           // Output
           new Container(
             margin: new EdgeInsets.only(
-                left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
+                left: 16.0, right: 16.0, top: 16.0,),
             child: new Text(
               _output,
               style: new TextStyle(
                 fontSize: 20.0,
               ),
             ),
-          )
+          ),
+          new Container(
+            margin: new EdgeInsets.only(
+                left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
+            child: new BotaoCopiar(_output),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class BotaoCopiar extends StatelessWidget {
+  final String texto;
+
+  BotaoCopiar(this.texto);
+
+  @override
+  Widget build(BuildContext context) {
+    return new FlatButton(
+      child: new Text("Copiar resultado"),
+      onPressed: () {
+        Clipboard.setData(new ClipboardData(text: texto));
+        Scaffold
+            .of(context)
+            .showSnackBar(new SnackBar(content: new Text("Resultado copiado")));
+      },
+      color: Colors.grey.shade300,
     );
   }
 }

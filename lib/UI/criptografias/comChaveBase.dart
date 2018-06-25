@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../basic_crypto.dart';
 
-class Base64 extends Criptografia {
+class NOME_DA_CRIPTOGRAFIA extends Criptografia {
   final String explicacao = "BASE64 EXPLICAÇÃO";
   final String nome = "Base64";
   final Nivel nivel = Nivel.AVANCADO;
 
   @override
-  State<StatefulWidget> createState() => _Base64State(explicacao, nome);
+  State<StatefulWidget> createState() => _NOME_DA_CRIPTOGRAFIAState(explicacao, nome);
 
   @override
   String decrypt(String cyphertext, {String key}) {
@@ -21,14 +21,14 @@ class Base64 extends Criptografia {
   }
 }
 
-class _Base64State extends State<Base64> {
+class _NOME_DA_CRIPTOGRAFIAState extends State<NOME_DA_CRIPTOGRAFIA> {
   final TextEditingController _input = new TextEditingController();
   String _output = "Resultado";
   final String explicacao;
   final String nome;
-  final Base64 base64 = new Base64();
+  final NOME_DA_CRIPTOGRAFIA CRIPTO = new NOME_DA_CRIPTOGRAFIA();
 
-  _Base64State(this.explicacao, this.nome);
+  _NOME_DA_CRIPTOGRAFIAState(this.explicacao, this.nome);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _Base64State extends State<Base64> {
                   color: Colors.grey.shade300,
                   onPressed: () {
                     setState(() {
-                      _output = base64.encrypt(_input.text);
+                      _output = CRIPTO.encrypt(_input.text);
                     });
                   },
                   child: new Center(child: new Text("Encrypt")),
@@ -89,7 +89,7 @@ class _Base64State extends State<Base64> {
                   color: Colors.grey.shade300,
                   onPressed: () {
                     setState(() {
-                      _output = base64.decrypt(_input.text);
+                      _output = CRIPTO.decrypt(_input.text);
                     });
                   },
                   child: new Center(child: new Text("Decrypt")),
@@ -101,7 +101,7 @@ class _Base64State extends State<Base64> {
           // Output
           new Container(
             margin: new EdgeInsets.only(
-                left: 16.0, right: 16.0, top: 16.0,),
+                left: 16.0, right: 16.0, top: 16.0, bottom: 32.0),
             child: new Text(
               _output,
               style: new TextStyle(
