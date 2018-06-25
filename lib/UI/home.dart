@@ -21,7 +21,11 @@ class _HomeState extends State<Home> {
     types.add(new Transposition());
     types.add(new CaesarShift());
 
-    types.sort((Criptografia a, Criptografia b) => a.nome.compareTo(b.nome));
+    types.sort((Criptografia a, Criptografia b) {
+      if(a.nivel == b.nivel)
+        return a.nome.compareTo(b.nome);
+      else return a.nivel.index > b.nivel.index ? 1 : -1;
+    });
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("The Code App"),
@@ -40,6 +44,7 @@ class _HomeState extends State<Home> {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) => tipo));
                     },
+                    trailing: new Text(tipo.nivel.toString()),
                   ),
                   new Divider(
                     color: Colors.grey,

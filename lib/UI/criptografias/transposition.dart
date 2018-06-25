@@ -6,6 +6,8 @@ class Transposition extends Criptografia {
   
   Vestibulum metus augue, cursus ac ligula sed, gravida bibendum eros. Vestibulum at pharetra nisl, ut bibendum leo. Nulla vel consectetur dolor. Proin mattis velit eu viverra venenatis. Quisque porttitor, metus at cursus mollis, sem nisl cursus nunc, non hendrerit ligula ipsum eget elit. Donec vel consequat diam. In facilisis auctor lacus, sed dictum nulla dapibus vel. Vestibulum condimentum sapien non ante egestas aliquet. Duis arcu dolor, hendrerit sit amet lacus quis, dignissim tincidunt odio. Suspendisse facilisis lectus vitae justo euismod, in vulputate dui aliquam. Ut cursus euismod metus, non faucibus nibh convallis quis. Praesent gravida nulla non vehicula posuere. In facilisis orci ac arcu finibus, in rutrum dui dictum. In non elit augue. Nam id ullamcorper justo.""";
   final String nome = "Transposition";
+  final Nivel nivel = Nivel.BASICO;
+
   @override
   String encrypt(String plaintext, {String key}) {
     return "";

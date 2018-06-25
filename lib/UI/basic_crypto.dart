@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 abstract class Criptografia extends StatefulWidget{
   final String explicacao = "";
   final String nome = "";
+  final Nivel nivel = Nivel.BASICO;
   String encrypt(String plaintext, {String key});
   String decrypt(String cyphertext, {String key});
+}
+
+enum Nivel{
+  BASICO,
+  MEDIO,
+  AVANCADO
 }
 
 class Basic extends StatefulWidget {

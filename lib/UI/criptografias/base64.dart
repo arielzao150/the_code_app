@@ -4,6 +4,7 @@ import '../basic_crypto.dart';
 class Base64 extends Criptografia{
   final String explicacao = "BASE64 EXPLICAÇÃO";
   final String nome = "Base64";
+  final Nivel nivel = Nivel.AVANCADO;
   @override
   State<StatefulWidget> createState() => _Base64State(explicacao);
 
@@ -35,11 +36,6 @@ class _Base64State extends State<Base64>{
         child: new Column(
           children: <Widget>[
             new Container(
-//              child: new Text(
-//                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis condimentum eros. Nam faucibus congue tortor, vel venenatis diam maximus et. Vestibulum ante ipsum primis.",
-//                textAlign: TextAlign.justify,
-//                style: new TextStyle(color: Colors.red),
-//              ),
               child: new RichText(
                 text: new TextSpan(
                   text: explicacao,
