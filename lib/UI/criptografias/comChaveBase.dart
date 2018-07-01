@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import '../basic_crypto.dart';
 
 class NOME_DA_CRIPTOGRAFIA extends Criptografia {
-  final String explicacao = "BASE64 EXPLICAÇÃO";
-  final String nome = "Base64";
+  final String explicacao = """INSERIR EXPLICAÇÃO DA CRIPTOGRAFIA AQUI""";
+  final String nome = "NOME DA CRIPTOGRAFIA";
   final Nivel nivel = Nivel.AVANCADO;
 
   @override
@@ -12,17 +12,18 @@ class NOME_DA_CRIPTOGRAFIA extends Criptografia {
 
   @override
   String decrypt(String cyphertext, {String key}) {
-    return "Decrypt Cypher = " + cyphertext;
+    return "DECRYPT Plain = " + cyphertext + " Key = " + key;
   }
 
   @override
   String encrypt(String plaintext, {String key}) {
-    return "Encrypt Plain = " + plaintext;
+    return "ENCRYPT Plain = " + plaintext + " Key = " + key;
   }
 }
 
 class _NOME_DA_CRIPTOGRAFIAState extends State<NOME_DA_CRIPTOGRAFIA> {
   final TextEditingController _input = new TextEditingController();
+  final TextEditingController _key = new TextEditingController();
   String _output = "Resultado";
   final String explicacao;
   final String nome;
@@ -68,6 +69,24 @@ class _NOME_DA_CRIPTOGRAFIAState extends State<NOME_DA_CRIPTOGRAFIA> {
             ),
           ),
 
+          // Key
+          new Container(
+            margin: new EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+            child: new TextFormField(
+              autocorrect: false,
+              controller: _key,
+              keyboardType: TextInputType.number,
+              maxLines: 1,
+              decoration: new InputDecoration(
+                labelText: "Chave",
+              ),
+              validator: (input) {
+                if (input.isEmpty) return "Chave não pode ser vazia";
+              },
+              autovalidate: true,
+            ),
+          ),
+
           // Botões
           new Row(
             children: <Widget>[
@@ -77,7 +96,7 @@ class _NOME_DA_CRIPTOGRAFIAState extends State<NOME_DA_CRIPTOGRAFIA> {
                   color: Colors.grey.shade300,
                   onPressed: () {
                     setState(() {
-                      _output = CRIPTO.encrypt(_input.text);
+                      _output = CRIPTO.encrypt(_input.text, key: _key.text);
                     });
                   },
                   child: new Center(child: new Text("Encrypt")),
@@ -135,6 +154,7 @@ class BotaoCopiar extends StatelessWidget {
             .of(context)
             .showSnackBar(new SnackBar(content: new Text("Resultado copiado")));
       },
+      color: Colors.grey.shade300,
     );
   }
 }

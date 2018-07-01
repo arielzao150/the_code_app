@@ -135,6 +135,7 @@ class BotaoCopiar extends StatelessWidget {
             .of(context)
             .showSnackBar(new SnackBar(content: new Text("Resultado copiado")));
       },
+      color: Colors.grey.shade300,
     );
   }
 }
