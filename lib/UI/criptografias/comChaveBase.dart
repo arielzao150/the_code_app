@@ -108,7 +108,7 @@ class _NOME_DA_CRIPTOGRAFIAState extends State<NOME_DA_CRIPTOGRAFIA> {
                   color: Colors.grey.shade300,
                   onPressed: () {
                     setState(() {
-                      _output = CRIPTO.decrypt(_input.text);
+                      _output = CRIPTO.decrypt(_input.text, key: _key.text);
                     });
                   },
                   child: new Center(child: new Text("Decrypt")),
