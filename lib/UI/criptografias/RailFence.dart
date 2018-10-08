@@ -3,7 +3,15 @@ import 'package:flutter/services.dart';
 import '../basic_crypto.dart';
 
 class RailFence extends Criptografia {
-  final String explicacao = """INSERIR EXPLICAÇÃO DA CRIPTOGRAFIA AQUI""";
+  final String explicacao = """Na cifra RailFence o plaintext é escrito para baixo e na diagonal em sucessivas "linhas", e então para cima assim que chegar na última linha. Chegando novamente na primeira linha, a mensagem volta a ser escrita para baixo, e assim por diante até que toda a mensagem seja escrita, e então a mensagem é lida normalmente. Por exemplo a frase: 'UMA FRASE DE EXEMPLO' ficaria:
+
+U . . . F . . . E . . .   . . . M . . .
+. M .   . R . S .   . E . E . E . P . O
+. . A . . . A . . . D . . . X . . . L .
+
+O ciphertext seria:
+
+UFE MM RS EEEPOAADXL""";
   final String nome = "RailFence";
   final Nivel nivel = Nivel.MEDIO;
 
