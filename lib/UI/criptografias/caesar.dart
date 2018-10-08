@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import '../basic_crypto.dart';
 
 class CaesarShift extends Criptografia {
-  final String explicacao = """INSERIR EXPLICAÇÃO DA CRIPTOGRAFIA AQUI""";
+  final String explicacao = """Um dos métodos mais simples e conhecidos de criptografia, a Cifra de César, nomeada assim por ter sido utilizada na correspondência de Júlio César, utiliza o método de substituição para transformar cada letra do plaintext em outra letra em ordem alfabética. Por exemplo, com nível 3, a letra A viraria D, B viraria E, e assim por diante.
+
+Esta criptografia é normalmente incorporada em outros esquemas mais complexos, como a Cifra Vigenère, e ainda tem aplicações mais modernas. Assim como todas cifras de substituição mono-alfabéticas (que utilizam somente 1 alfabeto), a Cifra de César é facilmente quebrada e em práticas modernas oferece essencialmente nenhuma segurança.""";
   final String nome = "Cifra de César";
   final Nivel nivel = Nivel.BASICO;
 
