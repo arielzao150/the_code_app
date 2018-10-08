@@ -6,7 +6,7 @@ import 'dart:io';
 
 class Kamasutra extends Criptografia {
   final String explicacao =
-  """Essa criptografia gera uma lista com 26 letras do alfabeto sem repetição e depois divide a lista em e 2 linhas de 13 letras em cada. Feito isso, ela procura cada letra do texto digitado e a substitui pela letra que possui a mesma posição que ela na outra fileira""";
+  """Essa criptografia gera uma lista com 26 letras do alfabeto sem repetições e depois a divide em e 2 linhas com 13 letras em cada uma. Feito isso, ela procura cada letra do texto digitado e a substitui pela letra que possui a mesma posição que ela na outra linha""";
   final String nome = "Kamasutra";
   final Nivel nivel = Nivel.BASICO;
 
@@ -19,7 +19,7 @@ class Kamasutra extends Criptografia {
     String text = cyphertext.toUpperCase();
     //String key  = keyKS;
     String enc = KSutra(text, key);
-    String dec = KSutra(enc, key);
+    //String dec = KSutra(enc, key);
 
     return enc;
   }
@@ -30,7 +30,7 @@ class Kamasutra extends Criptografia {
     //String key = keyKS;
     String enc = KSutra(text, key);
 
-    return "Chave = " + key + " ENCRYPT = " + enc;
+    return enc;
   }
 }
 
@@ -63,11 +63,10 @@ String KSutra(String text, String key) {
 
     for (int y = 0; y < keyLen; y++) {
       keyRow[y + z] = key[count];
-      print(keyRow[y + z] + " ");
       count++;
     }
 
-    print(keyRow);
+
   }
 
   String sb = "";
@@ -96,7 +95,7 @@ String KSutra(String text, String key) {
     }
     if (text[z] == ' ') sb += text[z];
   }
-  print(" teste " + sb);
+
   return sb;
 }
 
