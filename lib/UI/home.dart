@@ -8,6 +8,7 @@ import './criptografias/RailFence.dart';
 import './criptografias/transposition.dart';
 import './criptografias/vigenere.dart';
 import './criptografias/semChaveBase.dart';
+import './criptografias/atbash.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class _HomeState extends State<Home> {
     types.add(new CaesarShift());
     types.add(new RailFence());
     types.add(new Vigenere());
+    types.add(new Atbash());
     types.add(new NOME_DA_CRIPTOGRAFIA());
 
     types.sort((Criptografia a, Criptografia b) {
