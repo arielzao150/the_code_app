@@ -6,6 +6,7 @@ import './criptografias/base64.dart';
 import './criptografias/caesar.dart';
 import './criptografias/RailFence.dart';
 import './criptografias/transposition.dart';
+import './criptografias/vigenere.dart';
 import './criptografias/semChaveBase.dart';
 
 class Home extends StatefulWidget {
@@ -23,6 +24,7 @@ class _HomeState extends State<Home> {
     types.add(new Transposition());
     types.add(new CaesarShift());
     types.add(new RailFence());
+    types.add(new Vigenere());
     types.add(new NOME_DA_CRIPTOGRAFIA());
 
     types.sort((Criptografia a, Criptografia b) {
