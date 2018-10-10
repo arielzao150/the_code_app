@@ -21,7 +21,8 @@ class _HomeState extends State<Home> {
     types.add(new Base64());
     types.add(new Transposition());
     types.add(new CaesarShift());
-    types.add(new NOME_DA_CRIPTOGRAFIA());
+    types.add(new baconianCypher());
+    types.add(new autoKey());
 
     types.sort((Criptografia a, Criptografia b) {
       if (a.nivel == b.nivel)
