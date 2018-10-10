@@ -10,7 +10,7 @@ class BaconianCypher extends Criptografia {
   @override
   State<StatefulWidget> createState() => _BaconianCypher(explicacao, nome);
 
-  private Dictionary<char, string> codes = new Dictionary<char, string>{
+  Dictionary<char, string> _codes = new Dictionary<char, string>{
   {'a', "AAAAA" }, {'b', "AAAAB" }, {'c', "AAABA" }, {'d', "AAABB" }, {'e', "AABAA" },
   {'f', "AABAB" }, {'g', "AABBA" }, {'h', "AABBB" }, {'i', "ABAAA" }, {'j', "ABAAB" },
   {'k', "ABABA" }, {'l', "ABABB" }, {'m', "ABBAA" }, {'n', "ABBAB" }, {'o', "ABBBA" },
@@ -31,7 +31,11 @@ class BaconianCypher extends Criptografia {
     sb.Length = 0;
     for (int i = 0; i < et.Length; i += 5) {
       string quintet = et.Substring(i, 5);
-      char key = codes.Where(a => a.Value == quintet).First().Key;
+      for(var c in _codes){
+        if(c == quintet){
+          char key = c;
+        }
+      }
       sb.Append(key);
     }
     cyphertext = sb.ToString();
